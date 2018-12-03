@@ -87,7 +87,7 @@ executors:
   # We add -l to all the shell commands to make it easier to use direnv
   nix: &nix
     docker:
-      - image: lnl7/nix:latest # only latest includes common utils we want
+      - image: lnl7/nix:2.1.3
     # Symlink to the readline-enabled bash which is the default command of the container
     shell: /run/current-system/sw/bin/bash -leo pipefail
     working_directory: ~/expo
