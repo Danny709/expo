@@ -3,7 +3,7 @@ version: 2.1
 commands:
   install_nix:
     steps:
-      - run: curl https://nixos.org/releases/nix/nix-2.1.2/install | bash -s -- --no-daemon
+      - run: curl https://nixos.org/releases/nix/nix-2.1.3/install | bash -s -- --no-daemon
       - run: echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bash_profile
   setup:
     steps:
