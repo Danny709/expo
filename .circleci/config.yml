@@ -10,6 +10,8 @@ commands:
       # install required packages
       # direnv: configures environment with .envrc files
       # git: circleci checkout steps
+      # grep: used in .envrc
+      # tar: yarn
       # rsync: expo-module-scripts uses to copy template files
       # ssh: circleci checkout steps
       # xz: circleci checkout steps
@@ -17,6 +19,8 @@ commands:
          nix-env -iA \
            nixpkgs.direnv \
            nixpkgs.git \
+           nixpkgs.gnugrep \
+           nixpkgs.gnutar \
            nixpkgs.openssh \
            nixpkgs.rsync \
            nixpkgs.xz
