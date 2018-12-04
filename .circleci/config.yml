@@ -7,10 +7,19 @@ commands:
       - run: echo ". ~/.nix-profile/etc/profile.d/nix.sh" >> ~/.bash_profile
   setup:
     steps:
-      # ssh: used in circleci checkout steps
-      # direnv: used to configure environment with .envrc files
-      # rsync: used by expo-module-scripts to copy template files
-      - run: nix-env -iA nixpkgs.openssh nixpkgs.direnv nixpkgs.rsync
+      # install required packages
+      # direnv: configures environment with .envrc files
+      # git: circleci checkout steps
+      # rsync: expo-module-scripts uses to copy template files
+      # ssh: circleci checkout steps
+      # xz: circleci checkout steps
+      - run: |
+         nix-env -iA \
+           nixpkgs.direnv \
+           nixpkgs.git \
+           nixpkgs.openssh \
+           nixpkgs.rsync \
+           nixpkgs.xz
       - run: mkdir -p ~/.config/direnv
       - run: echo -e "[whitelist]\nprefix = [ \"$HOME\" ]" > ~/.config/direnv/config.toml
       - run: echo 'eval "$(direnv export bash)"' >> ~/.bash_profile
